@@ -1,5 +1,15 @@
 version: '3.7'
 services:
+  judger:
+    container_name: saboj_judger
+    image: vnoj/judge-tiervnoj:latest
+    volumes:
+      - ./problems/:/problems/
+    cap_add:
+      - SYS_PTRACE
+    restart: unless-stopped
+    command: run -p 9999 -c /problems/judge.yml 0.0.0.0 -a 23456
+    network_mode: host
   db:
     container_name: dmoj_mysql
     image: mariadb
