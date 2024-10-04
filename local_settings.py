@@ -14,7 +14,7 @@
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', '0') == '1'
-HOST = os.environ.get('HOST', '')
+HOST = os.environ.get('HOST', 'oj.sab.edu.vn')
 
 # Uncomment and set to the domain names this site is intended to serve.
 # You must do this once you set DEBUG to False.
@@ -54,8 +54,8 @@ DATABASES = {
 
 # Internationalization.
 # Documentation: <https://docs.djangoproject.com/en/1.11/topics/i18n/>
-LANGUAGE_CODE = 'en-ca'
-DEFAULT_USER_TIME_ZONE = 'America/Toronto'
+LANGUAGE_CODE = 'en-us'
+DEFAULT_USER_TIME_ZONE = 'Asia/Ho_Chi_Minh'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
@@ -133,9 +133,9 @@ STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesSto
 ############################################
 
 ## DMOJ site display settings.
-SITE_NAME = 'DMOJ'
-SITE_LONG_NAME = 'DMOJ: Modern Online Judge'
-SITE_ADMIN_EMAIL = 'admin@example.com'
+SITE_NAME = 'SABOJ'
+SITE_LONG_NAME = 'SABOJ: Modern Online Judge'
+SITE_ADMIN_EMAIL = 'sab@fit.hcmus.edu.vn'
 TERMS_OF_SERVICE_URL = None
 
 ## Bridge controls.
