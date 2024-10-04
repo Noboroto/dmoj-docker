@@ -8,9 +8,7 @@ services:
     cap_add:
       - SYS_PTRACE
     restart: unless-stopped
-    command: run -p 9999 -c /problems/judge.yml localhost
-    expose:
-      - 23456
+    command: run -p 9999 -c /problems/judge.yml dmoj_bridged
     network_mode: host
   db:
     container_name: dmoj_mysql
@@ -94,6 +92,7 @@ services:
     networks: [site, db, multi-domain]
     depends_on: [base, db, redis]
   bridged:
+    container_name: dmoj_bridged
     build:
       context: .
       dockerfile: ./bridged/Dockerfile
