@@ -111,8 +111,6 @@ services:
     env_file: [environment/mysql.env, environment/site.env]
     networks: [site, nginx]
   nginx:
-    environment:
-      - HOST=oj.sab.edu.vn
     container_name: dmoj_nginx
     image: nginx:alpine
     restart: always
