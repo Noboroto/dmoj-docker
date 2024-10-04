@@ -125,6 +125,9 @@ services:
       - ./nginx/conf.d/:/etc/nginx/conf.d/
     networks: [nginx]
     depends_on: [site, wsevent]
+    enviroment:
+      - HOST=oj.sab.edu.vn
+    
 networks:
   site:
     external: true
