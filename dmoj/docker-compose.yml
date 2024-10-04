@@ -129,6 +129,8 @@ networks:
   site:
   db:
   nginx:
+    external: true
+    name: multi-domain
 volumes:
   assets:
   pdfcache:
