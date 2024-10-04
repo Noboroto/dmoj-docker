@@ -12,7 +12,7 @@ services:
     container_name: dmoj_redis
     image: redis:alpine
     restart: always
-    networks: [site]
+    networks: [site, multi-domain]
   texoid:
     build:
       context: .
@@ -20,7 +20,7 @@ services:
     image: ninjaclasher/dmoj-texoid
     init: true
     restart: unless-stopped
-    networks: [site]
+    networks: [site, multi-domain]
   pdfoid:
     build:
       context: .
@@ -28,7 +28,7 @@ services:
     image: ninjaclasher/dmoj-pdfoid
     init: true
     restart: unless-stopped
-    networks: [site]
+    networks: [site, multi-domain]
     cap_add:
       - SYS_ADMIN
   mathoid:
@@ -40,7 +40,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./mathoid/config.yaml:/node_modules/mathoid/config.yaml
-    networks: [site]
+    networks: [site, multi-domain]
   base:
     build:
       context: .
@@ -64,7 +64,7 @@ services:
       - ./repo/:/site/
     working_dir: /site/
     env_file: [environment/mysql.env, environment/site.env]
-    networks: [site, nginx, db]
+    networks: [site, nginx, db, multi-domain]
     depends_on: [base, db, redis]
   celery:
     build:
@@ -79,7 +79,7 @@ services:
       - ./repo/:/site/
     working_dir: /site/
     env_file: [environment/mysql.env, environment/site.env]
-    networks: [site, db]
+    networks: [site, db, multi-domain]
     depends_on: [base, db, redis]
   bridged:
     build:
@@ -94,7 +94,7 @@ services:
       - ./repo/:/site/
     working_dir: /site/
     env_file: [environment/mysql.env, environment/site.env]
-    networks: [site, nginx, db]
+    networks: [site, nginx, db, multi-domain]
     ports:
       - 9999:9999
     depends_on: [base, db, redis]
@@ -109,7 +109,7 @@ services:
       - ./repo/:/app/site/
     working_dir: /app/site
     env_file: [environment/mysql.env, environment/site.env]
-    networks: [site, nginx]
+    networks: [site, nginx, multi-domain]
   nginx:
     container_name: dmoj_nginx
     image: nginx:alpine
@@ -123,16 +123,13 @@ services:
       - cache:/cache/
       - ./media/:/media/
       - ./nginx/conf.d/:/etc/nginx/conf.d/
-    networks: [nginx]
+    networks: [nginx, multi-domain]
     depends_on: [site, wsevent]    
 networks:
   site:
-    external: true
-    name: multi-domain
   db:
-    external: true
-    name: multi-domain
   nginx:
+  multi-domain:
     external: true
     name: multi-domain
 volumes:
