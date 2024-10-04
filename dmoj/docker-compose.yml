@@ -127,7 +127,11 @@ services:
     depends_on: [site, wsevent]
 networks:
   site:
+    external: true
+    name: multi-domain
   db:
+    external: true
+    name: multi-domain
   nginx:
     external: true
     name: multi-domain
