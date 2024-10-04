@@ -111,6 +111,8 @@ services:
     env_file: [environment/mysql.env, environment/site.env]
     networks: [site, nginx]
   nginx:
+    environment:
+      - HOST=oj.sab.edu.vn
     container_name: dmoj_nginx
     image: nginx:alpine
     restart: always
@@ -124,10 +126,7 @@ services:
       - ./media/:/media/
       - ./nginx/conf.d/:/etc/nginx/conf.d/
     networks: [nginx]
-    depends_on: [site, wsevent]
-    enviroment:
-      - HOST=oj.sab.edu.vn
-    
+    depends_on: [site, wsevent]    
 networks:
   site:
     external: true
