@@ -3,9 +3,29 @@ DMOJ Docker [![Build Status](https://github.com/Ninjaclasher/dmoj-docker/workflo
 
 This repository contains the Docker files to run a clone of the [DMOJ site](https://github.com/DMOJ/online-judge). It configures some additional services, such as mathoid, pdfoid, and texoid.
 
+## Change settings
+Go to `/dmoj/environment` to change config in three file
+
 ## Installation
 
 First, [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/) must be installed. Installation instructions can be found on their respective websites.
+
+File `mysql-admin.env`
+```
+MYSQL_ROOT_PASSWORD=<password>
+```
+File `mysql.env`, password config the same as above
+```
+MYSQL_DATABASE=dmoj
+MYSQL_USER=dmoj
+MYSQL_PASSWORD=<password>
+```
+File `site.env`
+```
+HOST=*
+DEBUG=0
+SECRET_KEY=<secret key>
+```
 
 Clone the repository:
 ```sh
