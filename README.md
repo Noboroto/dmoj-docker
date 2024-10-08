@@ -105,7 +105,7 @@ docker compose restart site celery bridged wsevent
 
 ### Multiple Nginx Instances
 
-The `docker-compose.yml` configures Nginx to publish to port 80. If you have another Nginx instance on your host machine, you may want to change the port and proxy pass instead.
+The `compose.yml` configures Nginx to publish to port 80. If you have another Nginx instance on your host machine, you may want to change the port and proxy pass instead.
 
 For example, a possible Nginx configuration file on your host machine would be:
 ```
