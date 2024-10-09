@@ -1,4 +1,4 @@
 #!/bin/bash
-sudo cp ./environment/mysql-admin.env.sample ./environment/mysql-admin.env
-sudo cp ./environment/mysql.env.sample ./environment/mysql.env
-sudo cp ./environment/site.sample ./environment/site.env
+cp ./environment/mysql-admin.env.sample /environment/mysql-admin.env
+cp ./environment/mysql.env.sample /environment/mysql.env
+cp ./environment/site.sample /environment/site.env
