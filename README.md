@@ -18,6 +18,13 @@ From now on, it is assumed you are in the `dmoj` directory.
 ## Change settings
 If this is not the first time, you can skip this step.
 Go to `/dmoj/environment` to change config in three file
+Run this
+```
+cp mysql-admin.env.sample mysql-admin.env
+cp mysql.env.sample mysql.env
+cp site.sample.env site.env
+```
+
 File `mysql-admin.env`
 ```
 MYSQL_ROOT_PASSWORD=<password>
