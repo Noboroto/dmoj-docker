@@ -22,7 +22,7 @@ Run this
 ```
 cp mysql-admin.env.sample mysql-admin.env
 cp mysql.env.sample mysql.env
-cp site.sample.env site.env
+cp site.env.sample site.env
 ```
 
 File `mysql-admin.env`
