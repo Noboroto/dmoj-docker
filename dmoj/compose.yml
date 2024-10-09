@@ -1,14 +1,4 @@
 services:
-### Command to build judge image
-# docker run \
-#     --name dmoj_judge \
-#     --network="host" \
-#     -v /home/david0403/david0403/github/dmoj-docker/dmoj/problems:/problems \
-#     --cap-add=SYS_PTRACE \
-#     -d \
-#     --restart=always \
-#     vnoj/judge-tier1 \
-#     run -p 9999 -c /problems/judge.yml localhost -A 0.0.0.0 -a 9995 
   db:
     container_name: dmoj_mysql
     image: mariadb
