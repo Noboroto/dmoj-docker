@@ -1,0 +1,6 @@
+#!/bin/bash
+cd $(dirname $(dirname $0)) || exit
+
+cp ../environment/mysql-admin.env.sample ../environment/mysql-admin.env
+cp ../environment/mysql.env.sample ../environment/mysql.env
+cp ../environment/site.sample ../environment/site.env

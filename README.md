@@ -16,6 +16,7 @@ cd dmoj
 From now on, it is assumed you are in the `dmoj` directory.
 
 ## Change settings
+If this is not the first time, you can skip this step.
 Go to `/dmoj/environment` to change config in three file
 File `mysql-admin.env`
 ```
