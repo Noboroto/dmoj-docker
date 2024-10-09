@@ -77,6 +77,9 @@ docker compose up -d
 
 ## Notes
 
+### Judger
+Read more at [DMOJ/judge-server - Github](https://github.com/DMOJ/judge-server)
+
 ### Migrating
 As the DMOJ site is a Django app, you may need to migrate whenever you update. Assuming the site container is running, running the following command should suffice:
 ```sh
